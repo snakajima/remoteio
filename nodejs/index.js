@@ -1,23 +1,24 @@
-const fs = require('fs');
 const express = require('express');
 const app = express();
 const path = require('path');
 
 const serverPort = 8888;
 var server = require('http').createServer(app);
-server.listen(serverPort, function(){
+
+server.listen(serverPort, () => {
 	console.log('listening on *:' + serverPort);
 });
-app.get('/', function(req, res){
+
+app.get('/', (req, res) => {
 	res.sendFile('index.html', { root: path.join(__dirname, './html') });
 });
-app.get('/html/:filename', function(req, res){
+app.get('/html/:filename', (req, res) => {
 	res.sendFile(req.params.filename, { root: path.join(__dirname, './html') });
 });
-app.get('/css/:filename', function(req, res){
+app.get('/css/:filename', (req, res) => {
 	res.sendFile(req.params.filename, { root: path.join(__dirname, './css') });
 });
-app.get('/js/:filename', function(req, res){
+app.get('/js/:filename', (req, res) => {
 	res.sendFile(req.params.filename, { root: path.join(__dirname, './js') });
 });
 
