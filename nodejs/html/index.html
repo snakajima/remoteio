@@ -1,6 +1,6 @@
 <html>
   <head>
-	<title>Hello</title>
+	<title>Home</title>
     <style>
         .focus_true {
             background:yellow;
@@ -18,11 +18,12 @@
         };
         remoteIO.onScene = function(scene, path) {
             console.log("scene =", scene, path);
+            window.location.href = path;
         };
     </script>
   </head>
   <body id='body'>
-    <h1>Sample Client</h1>
+    <h1>Home</h1>
     <p>Last verb: <span id='verb'></span></p>
   </body>
 </html>

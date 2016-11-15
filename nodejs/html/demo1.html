@@ -1,5 +1,29 @@
 <html>
-<body>
-<h1>Demo1</h1>
-</body>
+  <head>
+	<title>Demo 1</title>
+    <style>
+        .focus_true {
+            background:yellow;
+        }
+    </style>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/remote.io.js"></script>
+    <script>
+        remoteIO.setVerbs(["Red", "Green", "Yello"]);
+        remoteIO.onFocus = function(focus) {
+            document.getElementById('body').className = "focus_" + focus;
+        };
+        remoteIO.onVerb = function(verb) {
+            document.getElementById('verb').innerText = verb;
+        };
+        remoteIO.onScene = function(scene, path) {
+            console.log("scene =", scene, path);
+            window.location.href = path;
+        };
+    </script>
+  </head>
+  <body id='body'>
+    <h1>Demo 1</h1>
+    <p>Last verb: <span id='verb'></span></p>
+  </body>
 </html>
