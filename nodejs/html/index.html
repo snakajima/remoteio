@@ -16,8 +16,8 @@
         remoteIO.onVerb = function(verb) {
             document.getElementById('verb').innerText = verb;
         };
-        remoteIO.onScene = function(scene) {
-            console.log("scene =", scene);
+        remoteIO.onScene = function(scene, path) {
+            console.log("scene =", scene, path);
         };
     </script>
   </head>

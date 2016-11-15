@@ -9,7 +9,7 @@
 import UIKit
 
 class ScenePicker: UITableViewController {
-    let scenes = ["Logo", "Map", "Ocean", "UnityChan", "Debug", "SmartMap"]
+    let scenes = ["Main":"/", "Map":"/html/demo1.html"]
     var room = "N/A"
     var scene = "N/A"
     var handler:SocketHandler!
@@ -43,12 +43,12 @@ class ScenePicker: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "standard", for: indexPath)
-        cell.textLabel?.text = scenes[indexPath.row]
+        cell.textLabel?.text = Array(scenes.keys)[indexPath.row]
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        scene = scenes[indexPath.row]
-        handler.switchTo(scene:scene)
+        scene = Array(scenes.keys)[indexPath.row]
+        handler.switchTo(scene:scene, path:scenes[scene]!)
         performSegue(withIdentifier: "scene", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
