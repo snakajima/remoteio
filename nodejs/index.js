@@ -11,6 +11,15 @@ server.listen(serverPort, function(){
 app.get('/', function(req, res){
 	res.sendFile('index.html', { root: path.join(__dirname, './html') });
 });
+app.get('/html/:filename', function(req, res){
+	res.sendFile(req.params.filename, { root: path.join(__dirname, './html') });
+});
+app.get('/css/:filename', function(req, res){
+	res.sendFile(req.params.filename, { root: path.join(__dirname, './css') });
+});
+app.get('/js/:filename', function(req, res){
+	res.sendFile(req.params.filename, { root: path.join(__dirname, './js') });
+});
 
 const io = require('socket.io')(server);
 const rooms = require('./rooms');
