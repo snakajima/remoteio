@@ -7,4 +7,5 @@
 project.xcworkspace/
 xcuserdata/
 
+node_modules/
 .DS_Store

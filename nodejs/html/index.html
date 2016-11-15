@@ -1,0 +1,55 @@
+<html>
+  <head>
+	<title>Hello</title>
+    <style>
+        .focus_true {
+            background:yellow;
+        }
+    </style>
+	<script src="/socket.io/socket.io.js"></script>
+    <script>
+        var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+        var verbs = ["Walk", "Run", "Stop"];
+        console.log("loaded", guid);
+        var socket = io({});
+        socket.on('connect', function() {
+            console.log("connect");
+            socket.emit('/room/join', {name: "Lobby"});
+        });
+        socket.on('/room/join/success', function() {
+            console.log("/room/join/success");
+        });
+        socket.on('/room/message', function(data) {
+            console.log("/room/message", data);
+            switch(data.cmd) {
+            case 'scan':
+                socket.emit('/room/message', {cmd:"advertise", guid:guid, verbs:verbs});
+                break;
+            case 'focus':
+                if (data.guid == guid) {
+                    document.getElementById('body').className = "focus_" + data.focus
+                }
+                break;
+            case 'switch':
+                if (data.guid == guid) {
+                    socket.emit('/room/join', {name: data.room});
+                }
+                break;
+            case 'custom':
+                document.getElementById('verb').innerText = data.verb;
+                break;
+            }
+        });
+    
+    </script>
+  </head>
+  <body id='body'>
+    <h1>Sample Client</h1>
+    <p>Last verb: <span id='verb'></span></p>
+  </body>
+</html>
+
+
