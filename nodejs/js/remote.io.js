@@ -12,7 +12,8 @@
       setVerbs:function(_verbs) { verbs = _verbs; },
       // to be overridden by the app
       onFocus:function(focus) {},
-      onVerb:function(verb) {}
+      onVerb:function(verb) {},
+      onScene:function(scene) {}
     };
 
     var socket = io({});
@@ -42,6 +43,9 @@
             break;
         case 'custom':
             remoteIO.onVerb(data.verb);
+            break;
+        case 'scene':
+            remoteIO.onScene(data.name);
             break;
         }
     });
