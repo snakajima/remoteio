@@ -25,6 +25,7 @@ module.exports = function(io) {
     socket.on('/room/message', function(data) {
       var room = rooms[io.sockets.adapter.sids[socket.id].ROOM];
       console.log('message', room);
+      io.sockets.emit('/room/message', data);
     });
   });
 }
