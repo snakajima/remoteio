@@ -8,6 +8,11 @@
     </style>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/remote.io.js"></script>
+    <script>
+        remoteIO.onFocus = function(focus) {
+            document.getElementById('body').className = "focus_" + focus;
+        };
+    </script>
   </head>
   <body id='body'>
     <h1>Sample Client</h1>
