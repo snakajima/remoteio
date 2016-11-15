@@ -1,15 +1,21 @@
 //
 //  AppDelegate.swift
-//  remoteio
+//  ioswall
 //
-//  Created by satoshi on 11/15/16.
-//  Copyright © 2016 Satoshi Nakajima. All rights reserved.
+//  Created by satoshi on 10/20/16.
+//  Copyright © 2016 UIEvolution Inc. All rights reserved.
 //
 
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+#if (arch(i386) || arch(x86_64))
+    //let handler = SocketHandler(baseURL:URL(string: "http://10.110.111.200:8888")!)
+    let handler = SocketHandler(baseURL:URL(string: "http://localhost:8888")!)
+#else
+    let handler = SocketHandler(baseURL:URL(string: "http://10.110.111.200:8888")!)
+#endif
 
     var window: UIWindow?
 

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74C9DAE71DDB6C75007F7A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DAE61DDB6C75007F7A67 /* AppDelegate.swift */; };
-		74C9DAE91DDB6C75007F7A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DAE81DDB6C75007F7A67 /* ViewController.swift */; };
-		74C9DAEC1DDB6C75007F7A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C9DAEA1DDB6C75007F7A67 /* Main.storyboard */; };
 		74C9DAEE1DDB6C75007F7A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C9DAED1DDB6C75007F7A67 /* Assets.xcassets */; };
 		74C9DAF11DDB6C75007F7A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C9DAEF1DDB6C75007F7A67 /* LaunchScreen.storyboard */; };
 		74C9DB111DDB6E3F007F7A67 /* SocketAckEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DAF91DDB6E3F007F7A67 /* SocketAckEmitter.swift */; };
@@ -36,13 +33,18 @@
 		74C9DB261DDB6E3F007F7A67 /* SocketTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB0E1DDB6E3F007F7A67 /* SocketTypes.swift */; };
 		74C9DB271DDB6E3F007F7A67 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB0F1DDB6E3F007F7A67 /* SSLSecurity.swift */; };
 		74C9DB281DDB6E3F007F7A67 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB101DDB6E3F007F7A67 /* WebSocket.swift */; };
+		74C9DB331DDBB524007F7A67 /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB2B1DDBB524007F7A67 /* SocketHandler.swift */; };
+		74C9DB341DDBB524007F7A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB2C1DDBB524007F7A67 /* AppDelegate.swift */; };
+		74C9DB351DDBB524007F7A67 /* RoomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB2D1DDBB524007F7A67 /* RoomPicker.swift */; };
+		74C9DB361DDBB524007F7A67 /* ScenePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB2E1DDBB524007F7A67 /* ScenePicker.swift */; };
+		74C9DB371DDBB524007F7A67 /* ClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB2F1DDBB524007F7A67 /* ClientController.swift */; };
+		74C9DB381DDBB524007F7A67 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB301DDBB524007F7A67 /* SceneViewController.swift */; };
+		74C9DB391DDBB524007F7A67 /* SNNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB311DDBB524007F7A67 /* SNNotificationManager.swift */; };
+		74C9DB3A1DDBB524007F7A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C9DB321DDBB524007F7A67 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		74C9DAE31DDB6C75007F7A67 /* remoteio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = remoteio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		74C9DAE61DDB6C75007F7A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74C9DAE81DDB6C75007F7A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		74C9DAEB1DDB6C75007F7A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74C9DAED1DDB6C75007F7A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C9DAF01DDB6C75007F7A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74C9DAF21DDB6C75007F7A67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 		74C9DB0F1DDB6E3F007F7A67 /* SSLSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = ../../socketio/Source/SSLSecurity.swift; sourceTree = "<group>"; };
 		74C9DB101DDB6E3F007F7A67 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = ../../socketio/Source/WebSocket.swift; sourceTree = "<group>"; };
 		74C9DB291DDB76DE007F7A67 /* nodejs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = nodejs; path = ../../nodejs; sourceTree = "<group>"; };
+		74C9DB2B1DDBB524007F7A67 /* SocketHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
+		74C9DB2C1DDBB524007F7A67 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74C9DB2D1DDBB524007F7A67 /* RoomPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPicker.swift; sourceTree = "<group>"; };
+		74C9DB2E1DDBB524007F7A67 /* ScenePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenePicker.swift; sourceTree = "<group>"; };
+		74C9DB2F1DDBB524007F7A67 /* ClientController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientController.swift; sourceTree = "<group>"; };
+		74C9DB301DDBB524007F7A67 /* SceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
+		74C9DB311DDBB524007F7A67 /* SNNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNNotificationManager.swift; sourceTree = "<group>"; };
+		74C9DB321DDBB524007F7A67 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +114,15 @@
 		74C9DAE51DDB6C75007F7A67 /* remoteio */ = {
 			isa = PBXGroup;
 			children = (
+				74C9DB2B1DDBB524007F7A67 /* SocketHandler.swift */,
+				74C9DB2C1DDBB524007F7A67 /* AppDelegate.swift */,
+				74C9DB2D1DDBB524007F7A67 /* RoomPicker.swift */,
+				74C9DB2E1DDBB524007F7A67 /* ScenePicker.swift */,
+				74C9DB2F1DDBB524007F7A67 /* ClientController.swift */,
+				74C9DB301DDBB524007F7A67 /* SceneViewController.swift */,
+				74C9DB311DDBB524007F7A67 /* SNNotificationManager.swift */,
+				74C9DB321DDBB524007F7A67 /* Main.storyboard */,
 				74C9DAF81DDB6E11007F7A67 /* socketio */,
-				74C9DAE61DDB6C75007F7A67 /* AppDelegate.swift */,
-				74C9DAE81DDB6C75007F7A67 /* ViewController.swift */,
-				74C9DAEA1DDB6C75007F7A67 /* Main.storyboard */,
 				74C9DAED1DDB6C75007F7A67 /* Assets.xcassets */,
 				74C9DAEF1DDB6C75007F7A67 /* LaunchScreen.storyboard */,
 				74C9DAF21DDB6C75007F7A67 /* Info.plist */,
@@ -206,9 +221,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C9DB3A1DDBB524007F7A67 /* Main.storyboard in Resources */,
 				74C9DAF11DDB6C75007F7A67 /* LaunchScreen.storyboard in Resources */,
 				74C9DAEE1DDB6C75007F7A67 /* Assets.xcassets in Resources */,
-				74C9DAEC1DDB6C75007F7A67 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,13 +238,19 @@
 				74C9DB1C1DDB6E3F007F7A67 /* SocketExtensions.swift in Sources */,
 				74C9DB1A1DDB6E3F007F7A67 /* SocketEngineWebsocket.swift in Sources */,
 				74C9DB1F1DDB6E3F007F7A67 /* SocketIOClientOption.swift in Sources */,
+				74C9DB351DDBB524007F7A67 /* RoomPicker.swift in Sources */,
 				74C9DB201DDB6E3F007F7A67 /* SocketIOClientSpec.swift in Sources */,
 				74C9DB211DDB6E3F007F7A67 /* SocketIOClientStatus.swift in Sources */,
+				74C9DB331DDBB524007F7A67 /* SocketHandler.swift in Sources */,
 				74C9DB221DDB6E3F007F7A67 /* SocketLogger.swift in Sources */,
+				74C9DB341DDBB524007F7A67 /* AppDelegate.swift in Sources */,
 				74C9DB131DDB6E3F007F7A67 /* SocketAnyEvent.swift in Sources */,
+				74C9DB391DDBB524007F7A67 /* SNNotificationManager.swift in Sources */,
 				74C9DB251DDB6E3F007F7A67 /* SocketStringReader.swift in Sources */,
+				74C9DB361DDBB524007F7A67 /* ScenePicker.swift in Sources */,
 				74C9DB281DDB6E3F007F7A67 /* WebSocket.swift in Sources */,
 				74C9DB241DDB6E3F007F7A67 /* SocketParsable.swift in Sources */,
+				74C9DB381DDBB524007F7A67 /* SceneViewController.swift in Sources */,
 				74C9DB261DDB6E3F007F7A67 /* SocketTypes.swift in Sources */,
 				74C9DB1B1DDB6E3F007F7A67 /* SocketEventHandler.swift in Sources */,
 				74C9DB161DDB6E3F007F7A67 /* SocketEngineClient.swift in Sources */,
@@ -238,27 +259,18 @@
 				74C9DB191DDB6E3F007F7A67 /* SocketEngineSpec.swift in Sources */,
 				74C9DB111DDB6E3F007F7A67 /* SocketAckEmitter.swift in Sources */,
 				74C9DB151DDB6E3F007F7A67 /* SocketEngine.swift in Sources */,
-				74C9DAE91DDB6C75007F7A67 /* ViewController.swift in Sources */,
-				74C9DAE71DDB6C75007F7A67 /* AppDelegate.swift in Sources */,
 				74C9DB1E1DDB6E3F007F7A67 /* SocketIOClientConfiguration.swift in Sources */,
 				74C9DB271DDB6E3F007F7A67 /* SSLSecurity.swift in Sources */,
 				74C9DB181DDB6E3F007F7A67 /* SocketEnginePollable.swift in Sources */,
 				74C9DB171DDB6E3F007F7A67 /* SocketEnginePacketType.swift in Sources */,
 				74C9DB141DDB6E3F007F7A67 /* SocketClientManager.swift in Sources */,
+				74C9DB371DDBB524007F7A67 /* ClientController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		74C9DAEA1DDB6C75007F7A67 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				74C9DAEB1DDB6C75007F7A67 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		74C9DAEF1DDB6C75007F7A67 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
