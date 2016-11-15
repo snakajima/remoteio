@@ -21,5 +21,10 @@ module.exports = function(io) {
       io.sockets.adapter.sids[socket.id].ROOM = data.name;
       socket.emit('/room/join/success');
     });
+    
+    socket.on('/room/message', function(data) {
+      var room = rooms[io.sockets.adapter.sids[socket.id].ROOM];
+      console.log('message', room);
+    });
   });
 }
