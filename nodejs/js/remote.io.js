@@ -3,13 +3,14 @@
         var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
         return v.toString(16);
     });
-    var verbs = ["Walk", "Run", "Stop"];
+    var verbs = [];
     var room = (function() {
         var _room = localStorage.getItem("room")
         return (_room==undefined) ? "Lobby" : _room;
     })();
     var remoteIO = {
-      onFocus:function(focus) {}
+      onFocus:function(focus) {}, // to be overridden by the app
+      setVerbs:function(_verbs) { verbs = _verbs; }
     };
 
     var socket = io({});
