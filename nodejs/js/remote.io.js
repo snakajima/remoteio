@@ -9,8 +9,10 @@
         return (_room==undefined) ? "Lobby" : _room;
     })();
     var remoteIO = {
-      onFocus:function(focus) {}, // to be overridden by the app
-      setVerbs:function(_verbs) { verbs = _verbs; }
+      setVerbs:function(_verbs) { verbs = _verbs; },
+      // to be overridden by the app
+      onFocus:function(focus) {},
+      onVerb:function(verb) {}
     };
 
     var socket = io({});
@@ -39,7 +41,7 @@
             }
             break;
         case 'custom':
-            document.getElementById('verb').innerText = data.verb;
+            remoteIO.onVerb(data.verb);
             break;
         }
     });

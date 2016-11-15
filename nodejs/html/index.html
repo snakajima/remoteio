@@ -9,10 +9,13 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/remote.io.js"></script>
     <script>
+        remoteIO.setVerbs(["Red", "Green", "Yello"]);
         remoteIO.onFocus = function(focus) {
             document.getElementById('body').className = "focus_" + focus;
         };
-        remoteIO.setVerbs(["Red", "Green", "Yello"]);
+        remoteIO.onVerb = function(verb) {
+            document.getElementById('verb').innerText = verb;
+        };
     </script>
   </head>
   <body id='body'>
