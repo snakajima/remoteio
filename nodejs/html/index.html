@@ -13,13 +13,17 @@
             return v.toString(16);
         });
         var verbs = ["Walk", "Run", "Stop"];
-        console.log("loaded", guid);
+        var room = (function() {
+            var _room = localStorage.getItem("room")
+            return (_room==undefined) ? "Lobby" : _room;
+        })();
+
         var socket = io({});
         socket.on('connect', function() {
-            console.log("connect");
-            socket.emit('/room/join', {name: "Lobby"});
+            console.log("connect", guid, room);
+            socket.emit('/room/join', {name: room});
         });
-        socket.on('/room/join/success', function() {
+        socket.on('/room/join/success', function(data) {
             console.log("/room/join/success");
         });
         socket.on('/room/message', function(data) {
@@ -35,6 +39,7 @@
                 break;
             case 'switch':
                 if (data.guid == guid) {
+                    localStorage.setItem("room", data.room);
                     socket.emit('/room/join', {name: data.room});
                 }
                 break;
