@@ -13,7 +13,6 @@
       // to be overridden by the app
       onFocus:function(focus) {},
       onVerb:function(verb) {},
-      onScene:function(scene, path) {}
     };
 
     var socket = io({});
@@ -45,7 +44,8 @@
             remoteIO.onVerb(data.verb);
             break;
         case 'scene':
-            remoteIO.onScene(data.name, data.path);
+            console.log("scene =", data.name, data.path);
+            window.location.href = data.path;
             break;
         }
     });
