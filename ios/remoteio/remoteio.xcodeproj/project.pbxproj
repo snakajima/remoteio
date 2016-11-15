@@ -81,6 +81,8 @@
 		74C9DB301DDBB524007F7A67 /* SceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
 		74C9DB311DDBB524007F7A67 /* SNNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNNotificationManager.swift; sourceTree = "<group>"; };
 		74C9DB321DDBB524007F7A67 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		74C9DB3C1DDBB764007F7A67 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = ../../LICENSE.txt; sourceTree = "<group>"; };
+		74C9DB3D1DDBB76E007F7A67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		74C9DADA1DDB6C75007F7A67 = {
 			isa = PBXGroup;
 			children = (
+				74C9DB3B1DDBB751007F7A67 /* docs */,
 				74C9DB291DDB76DE007F7A67 /* nodejs */,
 				74C9DAE51DDB6C75007F7A67 /* remoteio */,
 				74C9DAE41DDB6C75007F7A67 /* Products */,
@@ -159,6 +162,15 @@
 				74C9DB101DDB6E3F007F7A67 /* WebSocket.swift */,
 			);
 			name = socketio;
+			sourceTree = "<group>";
+		};
+		74C9DB3B1DDBB751007F7A67 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				74C9DB3D1DDBB76E007F7A67 /* README.md */,
+				74C9DB3C1DDBB764007F7A67 /* LICENSE.txt */,
+			);
+			name = docs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
