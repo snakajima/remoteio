@@ -1,3 +1,6 @@
 [submodule "ios/socketio"]
 	path = ios/socketio
 	url = https://github.com/socketio/socket.io-client-swift.git
+[submodule "ios/SNNet"]
+	path = ios/SNNet
+	url = git@github.com:snakajima/SNNet.git

@@ -21,10 +21,23 @@ class SocketHandler {
     public private(set) var verbs = [String]()
     private var refreshCount = 0 // only for debugging
 
-    init(baseURL:URL) {
+    init(baseURL:URL, config:String) {
         socket = SocketIOClient(socketURL: baseURL, config: [])
         extraInit()
         socket.connect()
+        
+        let configURL = URL(string: config, relativeTo: baseURL)!
+        print(configURL.absoluteString)
+        SNNet.get(configURL.absoluteString, params:nil) { url, error in
+            guard
+                error == nil,
+                let url = url,
+                let data = try? Data(contentsOf: url),
+                let json = try? JSONSerialization.jsonObject(with: data) else {
+                return
+            }
+            print(json)
+        }
     }
     
     private func extraInit() {

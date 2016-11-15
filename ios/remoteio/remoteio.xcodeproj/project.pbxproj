@@ -41,6 +41,7 @@
 		74C9DB381DDBB524007F7A67 /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB301DDBB524007F7A67 /* SceneViewController.swift */; };
 		74C9DB391DDBB524007F7A67 /* SNNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB311DDBB524007F7A67 /* SNNotificationManager.swift */; };
 		74C9DB3A1DDBB524007F7A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C9DB321DDBB524007F7A67 /* Main.storyboard */; };
+		74C9DB401DDBC00F007F7A67 /* SNNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DB3F1DDBC00F007F7A67 /* SNNet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		74C9DB321DDBB524007F7A67 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		74C9DB3C1DDBB764007F7A67 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = ../../LICENSE.txt; sourceTree = "<group>"; };
 		74C9DB3D1DDBB76E007F7A67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		74C9DB3F1DDBC00F007F7A67 /* SNNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNNet.swift; path = ../../SNNet/src/SNNet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		74C9DAE51DDB6C75007F7A67 /* remoteio */ = {
 			isa = PBXGroup;
 			children = (
+				74C9DB3E1DDBC001007F7A67 /* SNNet */,
 				74C9DB2B1DDBB524007F7A67 /* SocketHandler.swift */,
 				74C9DB2C1DDBB524007F7A67 /* AppDelegate.swift */,
 				74C9DB2D1DDBB524007F7A67 /* RoomPicker.swift */,
@@ -171,6 +174,14 @@
 				74C9DB3C1DDBB764007F7A67 /* LICENSE.txt */,
 			);
 			name = docs;
+			sourceTree = "<group>";
+		};
+		74C9DB3E1DDBC001007F7A67 /* SNNet */ = {
+			isa = PBXGroup;
+			children = (
+				74C9DB3F1DDBC00F007F7A67 /* SNNet.swift */,
+			);
+			name = SNNet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 				74C9DB391DDBB524007F7A67 /* SNNotificationManager.swift in Sources */,
 				74C9DB251DDB6E3F007F7A67 /* SocketStringReader.swift in Sources */,
 				74C9DB361DDBB524007F7A67 /* ScenePicker.swift in Sources */,
+				74C9DB401DDBC00F007F7A67 /* SNNet.swift in Sources */,
 				74C9DB281DDB6E3F007F7A67 /* WebSocket.swift in Sources */,
 				74C9DB241DDB6E3F007F7A67 /* SocketParsable.swift in Sources */,
 				74C9DB381DDBB524007F7A67 /* SceneViewController.swift in Sources */,
