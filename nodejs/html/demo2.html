@@ -1,6 +1,6 @@
 <html>
   <head>
-	<title>Demo 1</title>
+	<title>Demo 2</title>
     <style>
         .focus_true {
             background:yellow;
@@ -9,7 +9,7 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/remote.io.js"></script>
     <script>
-        remoteIO.setVerbs(["June", "July", "August"]);
+        remoteIO.setVerbs(["Alpha", "Beta", "Gamma"]);
         remoteIO.onFocus = function(focus) {
             document.getElementById('body').className = "focus_" + focus;
         };
@@ -19,7 +19,7 @@
     </script>
   </head>
   <body id='body'>
-    <h1>Demo 1</h1>
+    <h1>Demo 2</h1>
     <p>Last verb: <span id='verb'></span></p>
   </body>
 </html>
