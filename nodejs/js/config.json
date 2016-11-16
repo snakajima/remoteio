@@ -4,8 +4,14 @@
         "dev_Satoshi", "dev_Hideya"
     ],
     "scenes":[
-        { "name":"Main", "path":"/", "pathB":"/html/indexB.html" },
-        { "name":"Demo 1", "path":"/html/demo1.html", "pathB":"/html/demo1B.html" },
-        { "name":"Demo 2", "path":"/html/demo2.html", "pathB":"/html/demo2B.html" }
+        { "name":"Main", "path":"/",
+          "commands":["Yellow", "Blue", "Green"],
+          "pathB":"/html/indexB.html" },
+        { "name":"Demo 1", "path":"/html/demo1.html",
+          "commands":["Black", "White"],
+          "pathB":"/html/demo1B.html" },
+        { "name":"Demo 2", "path":"/html/demo2.html",
+          "commands":["Car", "Bike", "Boat"],
+          "pathB":"/html/demo2B.html" }
     ]
 }

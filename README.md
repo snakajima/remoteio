@@ -72,9 +72,6 @@ Remote.io.js is a client-side JavaScript library, which processes message from t
 
 This library places a single object "remoteIO" in the global name space, and all the commication will be done via this object. 
 
-#### remoteIO.setCommands(commands)
-Each web page should specify the context-specific commands (array of strings) by calling setCommands method. Those commands will be presented in the *controller* screen of the remote controller. 
-
 #### remoteIO.onFocus(focus)
 Each web page should specify this callback function which will be called when the remote controller sets or remotes the focus on the page. 
 
@@ -96,7 +93,6 @@ By default, remote.io.js switches a different page when the operator selects a s
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/remote.io.js"></script>
     <script>
-        remoteIO.setVerbs(["Red", "Green", "Yello"]);
         remoteIO.onFocus = function(focus) {
             document.getElementById('body').className = "focus_" + focus;
         };
@@ -115,7 +111,7 @@ By default, remote.io.js switches a different page when the operator selects a s
 
 The config file is an application specific JSON file, which speicifies a set of *chat rooms* (array of strings) and a set of scenes (array of scene objects).
 
-Each scen object must have the *name* and the *path*, but may also additional application-specific parameters.
+Each scen object must have the *name* (string), the *path* (string) and *commands* (array of string), but may also have additional application-specific parameters.
 
 ```
 {
@@ -123,9 +119,15 @@ Each scen object must have the *name* and the *path*, but may also additional ap
         "Lobby", "Room 1", "Room 2", "Room 3"
     ],
     "scenes":[
-        { "name":"Main", "path":"/", "pathB":"/html/indexB.html" },
-        { "name":"Demo 1", "path":"/html/demo1.html", "pathB":"/html/demo1B.html" },
-        { "name":"Demo 2", "path":"/html/demo2.html", "pathB":"/html/demo2B.html" }
+        { "name":"Main", "path":"/",
+          "commands":["Yellow", "Blue", "Green"],
+          "pathB":"/html/indexB.html" },
+        { "name":"Demo 1", "path":"/html/demo1.html",
+          "commands":["Black", "White"],
+          "pathB":"/html/demo1B.html" },
+        { "name":"Demo 2", "path":"/html/demo2.html",
+          "commands":["Car", "Bike", "Boat"],
+          "pathB":"/html/demo2B.html" }
     ]
 }
 ```

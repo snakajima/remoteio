@@ -9,7 +9,6 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/remote.io.js"></script>
     <script>
-        remoteIO.setCommands(["June", "July", "August"]);
         remoteIO.onFocus = function(focus) {
             document.getElementById('body').className = "focus_" + focus;
         };

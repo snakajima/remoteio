@@ -124,7 +124,7 @@ class SocketHandler {
                     return
                 }
                 self.guids.insert(guid)
-                if let verbs = data["verbs"] as? [String] {
+                if let verbs = data["verbs"] as? [String], verbs.count > 0 {
                     self.verbs = verbs
                 }
                 print("on /room/message:advertise", guid, self.guids.count, self.verbs)
@@ -182,6 +182,7 @@ class SocketHandler {
     }
 
     func switchTo(scene:[String:Any]) {
+        self.verbs = scene["commands"] as? [String] ?? [String]()
         socket.emit("/room/message", ["cmd":"scene", "scene":scene])
     }
     
@@ -199,7 +200,6 @@ class SocketHandler {
     
     func scan() {
         guids.removeAll()
-        verbs.removeAll()
         socket.emit("/room/message", ["cmd":"scan"])
     }
 }
