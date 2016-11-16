@@ -28,7 +28,7 @@
         <!--Scenes-->
         <scene sceneID="8bX-FE-6qQ">
             <objects>
-                <tableViewController id="k6O-Bn-Qxn" customClass="ScenePicker" customModule="ioswall" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="k6O-Bn-Qxn" customClass="ScenePicker" customModule="remoteio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WsA-4f-iVt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,7 @@
         <!--Room Picker-->
         <scene sceneID="Qe2-Qa-VYa">
             <objects>
-                <tableViewController id="WMy-Q9-x1Z" customClass="RoomPicker" customModule="ioswall" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="WMy-Q9-x1Z" customClass="RoomPicker" customModule="remoteio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2en-FB-5ue">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,7 +76,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EBd-pe-IYs" id="dHW-tf-M3H">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -98,7 +98,7 @@
         <!--Title-->
         <scene sceneID="60B-D5-gQ9">
             <objects>
-                <viewController id="KcH-af-wnS" customClass="SceneViewController" customModule="ioswall" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KcH-af-wnS" customClass="SceneViewController" customModule="remoteio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mYl-gW-dAh"/>
                         <viewControllerLayoutGuide type="bottom" id="ApI-xF-a4K"/>
@@ -154,7 +154,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oH4-Le-gsJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pinchGestureRecognizer id="ftL-n7-boh">
                     <connections>
-                        <action selector="handlePinchsWithRecognizer:" destination="KcH-af-wnS" id="nYd-GQ-blc"/>
+                        <action selector="handlePinchesWithRecognizer:" destination="KcH-af-wnS" id="Otg-7Y-s1G"/>
                     </connections>
                 </pinchGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="HWN-a6-N89">
@@ -168,7 +168,7 @@
         <!--Title-->
         <scene sceneID="Ym0-1x-ehh">
             <objects>
-                <tableViewController id="aR0-Tj-eFH" customClass="ClientController" customModule="ioswall" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aR0-Tj-eFH" customClass="ClientController" customModule="remoteio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OXe-zD-aF2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +178,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nDt-WM-xoA" id="KaQ-8R-33b">
-                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

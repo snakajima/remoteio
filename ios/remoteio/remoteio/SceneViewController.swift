@@ -11,8 +11,6 @@ import UIKit
 class SceneViewController: UIViewController {
     var scene = "N/A"
     var handler:SocketHandler!
-    var scale = CGFloat(1.0)
-    var xf = CGPoint.zero
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,36 +24,40 @@ class SceneViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func updateViewport(scale:CGFloat, xf:CGPoint) {
-        handler.sendAppMessage(data: ["cmd":"viewport", "scale":scale, "tx":xf.x, "ty":xf.y])
-    }
 
-    @IBAction func handlePinchs(recognizer:UIPinchGestureRecognizer) {
-        let scale = self.scale * recognizer.scale
+    
+    @IBAction func handlePinches(recognizer:UIPinchGestureRecognizer) {
+        let pt = recognizer.location(in: recognizer.view)
+        let scale = recognizer.scale
+        let state:String
         switch(recognizer.state) {
-        case .ended:
-            updateViewport(scale: scale, xf:xf)
-            self.scale = scale
+        case .began:
+            state = "pan"
         case .changed:
-            updateViewport(scale: scale, xf:xf)
+            state = "changed"
+        case .ended:
+            state = "ended"
         default:
-            break
+            state = "cancelled"
         }
+        handler.sendAppMessage(data: ["cmd":"pinch", "state":state, "pos":[pt.x, pt.y], "scale":scale])
     }
+    
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
-        //print("panning")
-        let t = recognizer.translation(in: recognizer.view)
-        let xf = CGPoint(x: self.xf.x + t.x, y: self.xf.y + t.y)
+        let pt = recognizer.location(in: recognizer.view)
+        let tx = recognizer.translation(in: recognizer.view)
+        let state:String
         switch(recognizer.state) {
+        case .began:
+            state = "pan"
         case .changed:
-            updateViewport(scale: scale, xf:xf)
+            state = "changed"
         case .ended:
-            updateViewport(scale: scale, xf:xf)
-            self.xf = xf
+            state = "ended"
         default:
-            break
+            state = "cancelled"
         }
+        handler.sendAppMessage(data: ["cmd":"pan", "state":state, "pos":[pt.x, pt.y], "tx":[tx.x, tx.y]])
     }
     
     @IBAction func action(btn:UIBarButtonItem) {
