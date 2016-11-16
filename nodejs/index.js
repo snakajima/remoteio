@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const serverPort = 8888;
+const serverPort = 8080;
 var server = require('http').createServer(app);
 
 server.listen(serverPort, () => {
