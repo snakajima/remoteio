@@ -101,24 +101,11 @@ class ClientController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.deselect()
         })
-        alert.addAction(UIAlertAction(title: "Lobby", style: .default) { (_) in
-            self.swichTo(room: "Lobby")
-        })
-        alert.addAction(UIAlertAction(title: "Room1", style: .default) { (_) in
-            self.swichTo(room: "Room1")
-        })
-        alert.addAction(UIAlertAction(title: "Room2", style: .default) { (_) in
-            self.swichTo(room: "Room2")
-        })
-        alert.addAction(UIAlertAction(title: "Room3", style: .default) { (_) in
-            self.swichTo(room: "Room3")
-        })
-        alert.addAction(UIAlertAction(title: "Satoshi", style: .default) { (_) in
-            self.swichTo(room: "Satoshi")
-        })
-        alert.addAction(UIAlertAction(title: "Hideya", style: .default) { (_) in
-            self.swichTo(room: "Hideya")
-        })
+        for verb in handler.rooms {
+            alert.addAction(UIAlertAction(title: verb, style: .default) { (_) in
+                self.swichTo(room: verb)
+            })
+        }
         self.present(alert, animated: true, completion: nil)
         handler.sendAppMessage(data: ["cmd":"focus", "guid":focusGuid, "focus":true])
     }
