@@ -13,6 +13,10 @@
       // to be overridden by the app
       onFocus:function(focus) {},
       onVerb:function(verb) {},
+      onScene:function(scene) {
+        console.log("scene =", scene.name, scene.path);
+        window.location.href = scene.path;
+      }
     };
 
     var socket = io({});
@@ -22,6 +26,7 @@
     });
     socket.on('/room/join/success', function(data) {
         console.log("/room/join/success");
+        socket.emit('/room/message', {cmd:"advertise", guid:guid, verbs:verbs});
     });
     socket.on('/room/message', function(data) {
         console.log("/room/message", data);
@@ -44,8 +49,7 @@
             remoteIO.onVerb(data.verb);
             break;
         case 'scene':
-            console.log("scene =", data.name, data.path);
-            window.location.href = data.path;
+            remoteIO.onScene(data);
             break;
         }
     });
