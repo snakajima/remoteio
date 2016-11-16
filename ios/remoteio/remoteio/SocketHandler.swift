@@ -181,8 +181,8 @@ class SocketHandler {
         return Int(NSDate().timeIntervalSince1970 * 1000)
     }
 
-    func switchTo(scene:String, path:String) {
-        socket.emit("/room/message", ["cmd":"scene", "name":scene, "path":path])
+    func switchTo(scene:[String:Any]) {
+        socket.emit("/room/message", ["cmd":"scene", "scene":scene])
     }
     
     func switchTo(room:String) {

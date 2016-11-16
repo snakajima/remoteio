@@ -49,7 +49,7 @@
             remoteIO.onVerb(data.verb);
             break;
         case 'scene':
-            remoteIO.onScene(data);
+            remoteIO.onScene(data.scene);
             break;
         }
     });
