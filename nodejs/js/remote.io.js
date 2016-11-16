@@ -9,10 +9,10 @@
         return (_room==undefined) ? "Lobby" : _room;
     })();
     var remoteIO = {
-      setVerbs:function(_verbs) { verbs = _verbs; },
+      setCommands:function(_verbs) { verbs = _verbs; },
       // to be overridden by the app
       onFocus:function(focus) {},
-      onVerb:function(verb) {},
+      onCommand:function(command) {},
       onScene:function(scene) {
         console.log("scene =", scene.name, scene.path);
         window.location.href = scene.path;
@@ -46,7 +46,7 @@
             }
             break;
         case 'custom':
-            remoteIO.onVerb(data.verb);
+            remoteIO.onCommand(data.verb);
             break;
         case 'scene':
             remoteIO.onScene(data.scene);

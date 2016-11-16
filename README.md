@@ -1,6 +1,6 @@
 # remote.io
 
-Remote.io is an apolication framework, which makes it possible to remote-control a set of web pages from an iOS device, such as switching pages, executing application specific commands, scrolling (panning) and zooming.  
+Remote.io is an apolication framework, which makes it possible to remote-control a set of web pages from an iOS device, such as switching pages and executing application specific commands.  
 
 ## Architecture
 
@@ -72,8 +72,8 @@ Remote.io.js is a client-side JavaScript library, which processes message from t
 
 This library places a single object "remoteIO" in the global name space, and all the commication will be done via this object. 
 
-#### remoteIO.setVerbs(commands)
-Each web page should specify the context-specific commands (array of strings) by calling setVerbs method. Those commands will be presented in the *controller* screen of the remote controller. 
+#### remoteIO.setCommands(commands)
+Each web page should specify the context-specific commands (array of strings) by calling setCommands method. Those commands will be presented in the *controller* screen of the remote controller. 
 
 #### remoteIO.onFocus(focus)
 Each web page should specify this callback function which will be called when the remote controller sets or remotes the focus on the page. 
@@ -81,10 +81,13 @@ Each web page should specify this callback function which will be called when th
 #### remoteIO.onCommand(command)
 Each web page should specify this callback function which will be called when the operator selects one of context-specific commands on the remote controller. 
 
+#### remoteIO.onScene(scene)
+By default, remote.io.js switches a different page when the operator selects a scene (to the URL specified in "path" paremeter). Each web page may override the default behavior by providing this callback function. The *scene* is the object associated with the selected scene, which has "name" and "path" (both strings) but also contain application specific parameters, such as "altenativePath". This is useful when the application wants to control sets of web pages at the same time (presented in different browsers or even different machines).  
+
 ```
 <html>
   <head>
-	<title>Home</title>
+    <title>Home</title>
     <style>
         .focus_true {
             background:yellow;
@@ -107,4 +110,22 @@ Each web page should specify this callback function which will be called when th
     <p>Last verb: <span id='verb'></span></p>
   </body>
 </html>
+```
+## Config File (config.json)
+
+The config file is an application specific JSON file, which speicifies a set of *chat rooms* (array of strings) and a set of scenes (array of scene objects).
+
+Each scen object must have the *name* and the *path*, but may also additional application-specific parameters.
+
+```
+{
+    "rooms":[
+        "Lobby", "Room 1", "Room 2", "Room 3"
+    ],
+    "scenes":[
+        { "name":"Main", "path":"/", "pathB":"/html/indexB.html" },
+        { "name":"Demo 1", "path":"/html/demo1.html", "pathB":"/html/demo1B.html" },
+        { "name":"Demo 2", "path":"/html/demo2.html", "pathB":"/html/demo2B.html" }
+    ]
+}
 ```

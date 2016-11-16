@@ -9,11 +9,11 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/remote.io.js"></script>
     <script>
-        remoteIO.setVerbs(["Alpha", "Beta", "Gamma"]);
+        remoteIO.setCommands(["Alpha", "Beta", "Gamma"]);
         remoteIO.onFocus = function(focus) {
             document.getElementById('body').className = "focus_" + focus;
         };
-        remoteIO.onVerb = function(verb) {
+        remoteIO.onCommand = function(verb) {
             document.getElementById('verb').innerText = verb;
         };
         remoteIO.onScene = function(scene) {
