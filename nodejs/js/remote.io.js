@@ -5,7 +5,7 @@
     });
     var verbs = [];
     var room = (function() {
-        var _room = localStorage.getItem("room")
+        var _room = localStorage.getItem("room.1")
         return (_room==undefined) ? "Lobby" : _room;
     })();
     var remoteIO = {

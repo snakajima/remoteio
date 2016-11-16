@@ -9,9 +9,9 @@
 import UIKit
 
 class ScenePicker: UITableViewController {
-    let scenes = ["Main":"/", "Map":"/html/demo1.html"]
+    var scenes = [["name":"Main", "path":"/"]] as [[String:Any]]
     var room = "N/A"
-    var scene = "N/A"
+    var sceneName = "Main"
     var handler:SocketHandler!
     let notificationManger = SNNotificationManager()
 
@@ -39,23 +39,29 @@ class ScenePicker: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        scenes = handler.scenes
         return handler.connected ? scenes.count : 0
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "standard", for: indexPath)
-        cell.textLabel?.text = Array(scenes.keys)[indexPath.row]
+        cell.textLabel?.text = scenes[indexPath.row]["name"] as? String
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        scene = Array(scenes.keys)[indexPath.row]
-        handler.switchTo(scene:scene, path:scenes[scene]!)
+        let scene = scenes[indexPath.row]
+        guard let path = scene["path"] as? String,
+              let name = scene["name"] as? String else {
+          return
+        }
+        sceneName = name
+        handler.switchTo(scene:name, path:path)
         performSegue(withIdentifier: "scene", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SceneViewController {
-            vc.scene = scene
+            vc.scene = sceneName
             vc.handler = handler
         } else if let vc = segue.destination as? ClientController {
             vc.handler = handler

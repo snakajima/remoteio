@@ -9,7 +9,7 @@
 import UIKit
 
 class RoomPicker: UITableViewController {
-    let rooms = ["Lobby", "Room1", "Room2", "Room3", "Satoshi", "Hideya", "Rakuto"]
+    var rooms = ["Lobby"]
     var room = "N/A"
     let notificationManger = SNNotificationManager()
 
@@ -34,6 +34,7 @@ class RoomPicker: UITableViewController {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
             return 0
         }
+        rooms = delegate.handler.rooms
         return delegate.handler.connected ? rooms.count : 0
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
