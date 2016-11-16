@@ -20,23 +20,29 @@ class SocketHandler {
     public private(set) var guids = Set<String>()
     public private(set) var verbs = [String]()
     private var refreshCount = 0 // only for debugging
+    private var config = ["rooms":["Lobby"], "scenes":["Main":"/"]] as [String : Any]
+    public var rooms:[String] { return self.config["rooms"] as! [String] }
+    public var scenes:[[String:Any]] { return self.config["scenes"] as! [[String:Any]] }
 
-    init(baseURL:URL, config:String) {
+    init(baseURL:URL, configPath:String) {
         socket = SocketIOClient(socketURL: baseURL, config: [])
         extraInit()
         socket.connect()
         
-        let configURL = URL(string: config, relativeTo: baseURL)!
+        let configURL = URL(string: configPath, relativeTo: baseURL)!
         print(configURL.absoluteString)
         SNNet.get(configURL.absoluteString, params:nil) { url, error in
             guard
                 error == nil,
                 let url = url,
                 let data = try? Data(contentsOf: url),
-                let json = try? JSONSerialization.jsonObject(with: data) else {
+                let json = try? JSONSerialization.jsonObject(with: data),
+                let config = json as? [String:Any],
+                let _ = config["rooms"] as? [String],
+                let _ = config["scenes"] as? [[String:Any]] else {
                 return
             }
-            print(json)
+            self.config = config
         }
     }
     
