@@ -4,8 +4,8 @@
         "dev_Satoshi", "dev_Hideya"
     ],
     "scenes":[
-        { "name":"Main", "path":"/" },
-        { "name":"Demo 1", "path":"/html/demo1.html" },
-        { "name":"Demo 2", "path":"/html/demo2.html" }
+        { "name":"Main", "path":"/", "pathB":"/html/indexB.html" },
+        { "name":"Demo 1", "path":"/html/demo1.html", "pathB":"/html/demo1B.html" },
+        { "name":"Demo 2", "path":"/html/demo2.html", "pathB":"/html/demo2B.html" }
     ]
 }
