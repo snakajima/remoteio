@@ -23,5 +23,5 @@ app.get('/js/:filename', (req, res) => {
 });
 
 const io = require('socket.io')(server);
-const rooms = require('./rooms');
-rooms(io)
+const chatrooms = require('./chatrooms');
+chatrooms(io)
