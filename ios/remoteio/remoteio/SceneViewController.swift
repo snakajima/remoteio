@@ -32,7 +32,7 @@ class SceneViewController: UIViewController {
         let state:String
         switch(recognizer.state) {
         case .began:
-            state = "pan"
+            state = "began"
         case .changed:
             state = "changed"
         case .ended:
@@ -49,7 +49,7 @@ class SceneViewController: UIViewController {
         let state:String
         switch(recognizer.state) {
         case .began:
-            state = "pan"
+            state = "began"
         case .changed:
             state = "changed"
         case .ended:

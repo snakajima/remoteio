@@ -17,7 +17,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-const serverPort = 8888;
+const serverPort = 8080;
 var server = require('http').createServer(app);
 
 server.listen(serverPort, () => {
@@ -74,9 +74,23 @@ This library places a single object "remoteIO" in the global name space, and all
 
 #### remoteIO.onFocus(focus)
 Each web page should specify this callback function which will be called when the remote controller sets or remotes the focus on the page. 
+- *focus*: focus mode (Boolean)
 
 #### remoteIO.onCommand(command)
-Each web page should specify this callback function which will be called when the operator selects one of context-specific commands on the remote controller. 
+Each web page may specify this callback function which will be called when the operator selects one of scene-specific commands on the remote controller. 
+- *command*: scene-specific command (String)
+
+#### remote.handlePan(state, pos, tx)
+Each web page may specify this callback function to handle "Pan" messages from the remote controller.
+- *state*: either "began", "changed", "ended" or "cancelled"
+- *pos*: position ({ x:*x*, y:*y* })
+- *tx*: translation ({ x:*x*, y:*y* })
+
+#### remote.handlePinch(state, pos, tx)
+Each web page may specify this callback function to handle "Pinch & Zoom" messages from the remote controller.
+- *state*: either "began", "changed", "ended" or "cancelled"
+- *pos*: position ({ x:*x*, y:*y* })
+- *scale*: scale (Float)
 
 #### remoteIO.onScene(scene)
 By default, remote.io.js switches a different page when the operator selects a scene (to the URL specified in "path" paremeter). Each web page may override the default behavior by providing this callback function. The *scene* is the object associated with the selected scene, which has "name" and "path" (both strings) but also contain application specific parameters, such as "altenativePath". This is useful when the application wants to control sets of web pages at the same time (presented in different browsers or even different machines).  
