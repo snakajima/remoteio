@@ -5,10 +5,10 @@
     ],
     "scenes":[
         { "name":"Main", "path":"/",
-          "commands":["Yellow", "Blue", "Green"],
+          "commands":["Black", "White", "Grey"],
           "pathB":"/html/indexB.html" },
         { "name":"Demo 1", "path":"/html/demo1.html",
-          "commands":["Black", "White"],
+          "commands":["Blue", "Red", "Green"],
           "pathB":"/html/demo1B.html" },
         { "name":"Demo 2", "path":"/html/demo2.html",
           "commands":["Car", "Bike", "Boat"],
