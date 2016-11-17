@@ -40,9 +40,13 @@
             remoteIO.handlePinch = function(state, pos, scale) {
                 box.style.width = boxSize.w * scale;
                 box.style.height = boxSize.h * scale;
+                box.style.left = boxPos.x + boxSize.w * (1 - scale) / 2;
+                box.style.top = boxPos.y + boxSize.h * (1 - scale) / 2;
                 if (state == "ended") {
                     boxSize.w *= scale;
                     boxSize.h *= scale;
+                    boxPos.x += boxSize.w * (1 - scale) / 2
+                    boxPos.y += boxSize.h * (1 - scale) / 2
                 }
             }
         };
