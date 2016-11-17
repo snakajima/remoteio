@@ -1,14 +1,14 @@
 # remote.io
 
-Remote.io is an application framework, which makes it possible to remote-control a set of web pages from an iOS device, such as switching pages and executing application specific commands.  
+Remote.io is an application framework, which makes it possible to remote-control a set of web pages from an iOS device, such as switching pages, executing application specific commands and sending "pan" and "pinch & zoom" events.  
 
 ## Architecture
 
 It consists of a Chat Server (chatrooms.js), an iOS application (the remote controller) and a JavaScript library (remote.io.js). 
 
-## How to run
+## How to run it (locally, for development)
 
-#### Requirement
+#### Requirements
 
 Development Engironment
 - OS X El Capitan
@@ -20,19 +20,24 @@ Software
 
 #### Start the Chat Server
 
-$ cd nodejs
-$ npm install # only for the very first time
-$ node index.js
+- $ cd nodejs
+- $ npm install *# only for the very first time*
+- $ node index.js
 
 #### Web client
 
 - open http://localhost:8080 in one browser
-- open http://localhost:8080/html/indexB.html in another browser
+- open http://localhost:8080/html/indexB.html in another browser (optional)
 
 #### iOS client
 
 - open ios/remoteio/remoteio.xcodeproj in Xcode
 - build & run it on a simulator
+- select "Lobby" from the main menu
+- select "Main" from the scene list
+- tap the "Devices" button to see the GUIDs from those web pages
+- tap the "Lobby" button to go back to the previous page
+- select "Demo 1". Each browser will navigate to Demo 1 (or Demo 1B) page
 
 ## Chat Server (chatrooms.js)
 
