@@ -52,10 +52,10 @@
                 box.style.left = boxPos.x + boxSize.w * (1 - scale) / 2;
                 box.style.top = boxPos.y + boxSize.h * (1 - scale) / 2;
                 if (state == "ended") {
+                    boxPos.x += boxSize.w * (1 - scale) / 2;
+                    boxPos.y += boxSize.h * (1 - scale) / 2;
                     boxSize.w *= scale;
                     boxSize.h *= scale;
-                    boxPos.x += boxSize.w * (1 - scale) / 2
-                    boxPos.y += boxSize.h * (1 - scale) / 2
                 }
             }
         };
