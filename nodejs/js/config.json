@@ -4,13 +4,13 @@
     ],
     "scenes":[
         { "name":"Main", "path":"/",
-          "commands":["Black", "White", "Grey"],
+          "commands":["Tom", "James", "Peter"],
           "pathB":"/html/indexB.html" },
         { "name":"Demo 1", "path":"/html/demo1.html",
           "commands":["Blue", "Red", "Green"],
           "pathB":"/html/demo1B.html" },
         { "name":"Demo 2", "path":"/html/demo2.html",
-          "commands":["Car", "Bike", "Boat"],
+          "commands":["Mr. Smith", "Mr. Johnson", "Mr. Williams"],
           "pathB":"/html/demo2B.html" }
     ]
 }

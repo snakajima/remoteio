@@ -13,12 +13,12 @@
             document.getElementById('body').className = "focus_" + focus;
         };
         remoteIO.onCommand = function(verb) {
-            document.getElementById('verb').innerText = verb;
+            document.getElementById('verb').innerText = ", " + verb + "!";
         };
     </script>
   </head>
   <body id='body'>
     <h1>Demo 2</h1>
-    <p>Last verb: <span id='verb'></span></p>
+    <p>Hello World<span id='verb'></span></p>
   </body>
 </html>
