@@ -5,6 +5,12 @@
         .focus_true {
             background:yellow;
         }
+        #box {
+            position:absolute;
+            width:100px;
+            height:100px;
+            background:blue;
+        }
     </style>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/remote.io.js"></script>
@@ -15,10 +21,26 @@
         remoteIO.onCommand = function(verb) {
             document.getElementById('verb').innerText = verb;
         };
+
+        window.onload = function() {
+            var box = document.getElementById('box');
+            var boxPos = [100,100];
+            box.style.left = boxPos[0];
+            box.style.top = boxPos[1];
+            
+            remoteIO.handlePan = function(state, pos, tx) {
+                box.style.left = boxPos[0] + tx[0];
+                box.style.top = boxPos[1] + tx[1];
+                if (state == "ended") {
+                    boxPos = [boxPos[0] + tx[0], boxPos[1] + tx[1]];
+                }
+            }
+        };
     </script>
   </head>
   <body id='body'>
     <h1>Demo 1</h1>
     <p>Last verb: <span id='verb'></span></p>
+    <div id='box'></div>
   </body>
 </html>

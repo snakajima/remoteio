@@ -16,7 +16,9 @@
       onScene:function(scene) {
         console.log("scene =", scene.name, scene.path);
         window.location.href = scene.path;
-      }
+      },
+      handlePan:function(state, pos, translate) {},
+      handlePinch:function(state, pos, scale) {},
     };
 
     var socket = io({});
@@ -50,6 +52,12 @@
             break;
         case 'scene':
             remoteIO.onScene(data.scene);
+            break;
+        case 'pan':
+            remoteIO.handlePan(data.state, data.pos, data.tx);
+            break;
+        case 'pinch':
+            remoteIO.handlePinch(data.state, data.pos, data.scale);
             break;
         }
     });
