@@ -6,6 +6,34 @@ Remote.io is an apolication framework, which makes it possible to remote-control
 
 It consists of a Chat Server (chatrooms.js), an iOS application (the remote controller) and a JavaScript library (remote.io.js). 
 
+## How to run
+
+#### Requirement
+
+Development Engironment
+- OS X El Capitan
+
+Software
+- Xcode (8.1 or later)
+- node.js (4.6.0 or later) + npm (2.15.9 or later)
+- express, socket.io ("npm install" will install it)
+
+#### Start the Chat Server
+
+$ cd nodejs
+$ npm install # only for the very first time
+$ node index.js
+
+#### Web client
+
+- open http://localhost:8080 in one browser
+- open http://localhost:8080/html/indexB.html in another browser
+
+#### iOS client
+
+- open ios/remoteio/remoteio.xcodeproj in Xcode
+- build & run it on a simulator
+
 ## Chat Server (chatrooms.js)
 
 The Chat Server is a Node.js server built on top of the socket.io. It handles two messages, "/room/join" and "/room/message". 
