@@ -1,6 +1,6 @@
 # remote.io
 
-Remote.io is an apolication framework, which makes it possible to remote-control a set of web pages from an iOS device, such as switching pages and executing application specific commands.  
+Remote.io is an application framework, which makes it possible to remote-control a set of web pages from an iOS device, such as switching pages and executing application specific commands.  
 
 ## Architecture
 
