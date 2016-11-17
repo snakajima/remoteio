@@ -1,7 +1,6 @@
 {
     "rooms":[
-        "Lobby", "Room 1", "Room 2", "Room 3",
-        "dev_Satoshi", "dev_Hideya"
+        "Lobby", "Room 1", "Room 2", "Room 3"
     ],
     "scenes":[
         { "name":"Main", "path":"/",

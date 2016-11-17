@@ -16,8 +16,9 @@ class SocketHandler {
     public private(set) var guids = Set<String>()
     public private(set) var verbs = [String]()
     private var config = ["rooms":["Lobby"], "scenes":["Main":"/"]] as [String : Any]
-    public var rooms:[String] { return self.config["rooms"] as! [String] }
-    public var scenes:[[String:Any]] { return self.config["scenes"] as! [[String:Any]] }
+    public var rooms:[String] { return self.config["rooms"] as? [String] ?? [String]() }
+    public var scenes:[[String:Any]] { return self.config["scenes"] as? [[String:Any]] ?? [[String:Any]]() }
+    public var setups:[String] { return self.config["setups"] as? [String] ?? [String]() }
 
     init(baseURL:URL, configPath:String) {
         socket = SocketIOClient(socketURL: baseURL, config: [])

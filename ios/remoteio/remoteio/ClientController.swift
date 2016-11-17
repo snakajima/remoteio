@@ -70,25 +70,15 @@ class ClientController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         focusGuid = handler.guids.sorted()[indexPath.row]
-        let alert = UIAlertController(title: "Camera", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Setup", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.deselect()
         })
-        alert.addAction(UIAlertAction(title: "Full", style: .default) { (_) in
-            self.swichTo(camera: "full")
-        })
-        alert.addAction(UIAlertAction(title: "North West", style: .default) { (_) in
-            self.swichTo(camera: "nw")
-        })
-        alert.addAction(UIAlertAction(title: "North East", style: .default) { (_) in
-            self.swichTo(camera: "ne")
-        })
-        alert.addAction(UIAlertAction(title: "South West", style: .default) { (_) in
-            self.swichTo(camera: "sw")
-        })
-        alert.addAction(UIAlertAction(title: "South East", style: .default) { (_) in
-            self.swichTo(camera: "se")
-        })
+        for verb in handler.setups {
+            alert.addAction(UIAlertAction(title: verb, style: .default) { (_) in
+                self.handler.sendAppMessage(data: ["cmd" : "setup", "verb":verb])
+            })
+        }
         self.present(alert, animated: true, completion: nil)
         handler.sendAppMessage(data: ["cmd":"focus", "guid":focusGuid, "focus":true])
     }
