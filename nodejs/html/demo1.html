@@ -7,8 +7,6 @@
         }
         #box {
             position:absolute;
-            width:100px;
-            height:100px;
             background:blue;
         }
     </style>
@@ -24,15 +22,27 @@
 
         window.onload = function() {
             var box = document.getElementById('box');
-            var boxPos = [100,100];
-            box.style.left = boxPos[0];
-            box.style.top = boxPos[1];
+            var boxPos = {x:100,y:100};
+            var boxSize = {w:100,h:100};
+            box.style.left = boxPos.x;
+            box.style.top = boxPos.y;
+            box.style.width = boxSize.w;
+            box.style.height = boxSize.h;
             
             remoteIO.handlePan = function(state, pos, tx) {
-                box.style.left = boxPos[0] + tx[0];
-                box.style.top = boxPos[1] + tx[1];
+                box.style.left = boxPos.x + tx.x;
+                box.style.top = boxPos.y + tx.y;
                 if (state == "ended") {
-                    boxPos = [boxPos[0] + tx[0], boxPos[1] + tx[1]];
+                    boxPos.x += tx.x;
+                    boxPos.y += tx.y;
+                }
+            }
+            remoteIO.handlePinch = function(state, pos, scale) {
+                box.style.width = boxSize.w * scale;
+                box.style.height = boxSize.h * scale;
+                if (state == "ended") {
+                    boxSize.w *= scale;
+                    boxSize.h *= scale;
                 }
             }
         };

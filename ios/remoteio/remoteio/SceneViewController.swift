@@ -40,7 +40,7 @@ class SceneViewController: UIViewController {
         default:
             state = "cancelled"
         }
-        handler.sendAppMessage(data: ["cmd":"pinch", "state":state, "pos":[pt.x, pt.y], "scale":scale])
+        handler.sendAppMessage(data: ["cmd":"pinch", "state":state, "pos":["x":pt.x, "y":pt.y], "scale":scale])
     }
     
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
@@ -57,7 +57,7 @@ class SceneViewController: UIViewController {
         default:
             state = "cancelled"
         }
-        handler.sendAppMessage(data: ["cmd":"pan", "state":state, "pos":[pt.x, pt.y], "tx":[tx.x, tx.y]])
+        handler.sendAppMessage(data: ["cmd":"pan", "state":state, "pos":["x":pt.x, "y":pt.y], "tx":["x":tx.x, "y":tx.y]])
     }
     
     @IBAction func action(btn:UIBarButtonItem) {
