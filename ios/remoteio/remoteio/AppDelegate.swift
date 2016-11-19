@@ -10,12 +10,14 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+/*
 #if (arch(i386) || arch(x86_64))
     //let handler = SocketHandler(baseURL:URL(string: "http://10.110.111.200:8080")!)
     let handler = SocketHandler(baseURL:URL(string: "http://localhost:8080")!, configPath:"/js/config.json")
 #else
     let handler = SocketHandler(baseURL:URL(string: "http://10.110.111.200:8080")!, configPath:"/js/config.json")
 #endif
+*/
 
     var window: UIWindow?
 

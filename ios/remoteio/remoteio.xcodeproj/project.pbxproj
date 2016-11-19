@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74C9390F1DE00C2600EC24F7 /* NetServicePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9390E1DE00C2600EC24F7 /* NetServicePicker.swift */; };
 		74C9DAEE1DDB6C75007F7A67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C9DAED1DDB6C75007F7A67 /* Assets.xcassets */; };
 		74C9DAF11DDB6C75007F7A67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C9DAEF1DDB6C75007F7A67 /* LaunchScreen.storyboard */; };
 		74C9DB111DDB6E3F007F7A67 /* SocketAckEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9DAF91DDB6E3F007F7A67 /* SocketAckEmitter.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74C9390E1DE00C2600EC24F7 /* NetServicePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetServicePicker.swift; sourceTree = "<group>"; };
 		74C9DAE31DDB6C75007F7A67 /* remoteio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = remoteio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C9DAED1DDB6C75007F7A67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C9DAF01DDB6C75007F7A67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				74C9DB3E1DDBC001007F7A67 /* SNNet */,
 				74C9DB2B1DDBB524007F7A67 /* SocketHandler.swift */,
 				74C9DB2C1DDBB524007F7A67 /* AppDelegate.swift */,
+				74C9390E1DE00C2600EC24F7 /* NetServicePicker.swift */,
 				74C9DB2D1DDBB524007F7A67 /* RoomPicker.swift */,
 				74C9DB2E1DDBB524007F7A67 /* ScenePicker.swift */,
 				74C9DB2F1DDBB524007F7A67 /* ClientController.swift */,
@@ -281,6 +284,7 @@
 				74C9DB231DDB6E3F007F7A67 /* SocketPacket.swift in Sources */,
 				74C9DB121DDB6E3F007F7A67 /* SocketAckManager.swift in Sources */,
 				74C9DB191DDB6E3F007F7A67 /* SocketEngineSpec.swift in Sources */,
+				74C9390F1DE00C2600EC24F7 /* NetServicePicker.swift in Sources */,
 				74C9DB111DDB6E3F007F7A67 /* SocketAckEmitter.swift in Sources */,
 				74C9DB151DDB6E3F007F7A67 /* SocketEngine.swift in Sources */,
 				74C9DB1E1DDB6E3F007F7A67 /* SocketIOClientConfiguration.swift in Sources */,
@@ -442,6 +446,7 @@
 				74C9DAF71DDB6C75007F7A67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

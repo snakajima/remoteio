@@ -9,6 +9,7 @@
 import UIKit
 
 class RoomPicker: UITableViewController {
+    var handler:SocketHandler!
     var rooms = ["Lobby"]
     var room = "N/A"
     let notificationManger = SNNotificationManager()
@@ -31,11 +32,8 @@ class RoomPicker: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
-            return 0
-        }
-        rooms = delegate.handler.rooms
-        return delegate.handler.connected ? rooms.count : 0
+        rooms = handler.rooms
+        return handler.connected ? rooms.count : 0
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "standard", for: indexPath)
@@ -43,12 +41,9 @@ class RoomPicker: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let delegate = UIApplication.shared.delegate as? AppDelegate {
-            let handler = delegate.handler
-            room = rooms[indexPath.row]
-            handler.switchTo(room:room)
-            performSegue(withIdentifier: "room", sender: nil)
-        }
+        room = rooms[indexPath.row]
+        handler.switchTo(room:room)
+        performSegue(withIdentifier: "room", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -58,7 +53,7 @@ class RoomPicker: UITableViewController {
         }
         if let vc = segue.destination as? ScenePicker {
             vc.room = room
-            vc.handler = delegate.handler
+            vc.handler = handler
         }
     }
 }
