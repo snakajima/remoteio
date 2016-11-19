@@ -4,7 +4,7 @@ Remote.io is an application framework, which makes it possible to remote-control
 
 ## Architecture
 
-It consists of a Chat Server (chatrooms.js), an iOS application (the remote controller) and a JavaScript library (remote.io.js). 
+It consists of a Chat Server (chatrooms.js), a Bonjour server (remote.bj), an iOS application (the remote controller) and a JavaScript library (remote.io.js). 
 
 ## How to run it (locally, for development)
 
@@ -29,10 +29,16 @@ Software
 - open http://localhost:8080 in one browser
 - open http://localhost:8080/html/indexB.html in another browser (optional)
 
+#### Bonjour Server
+
+- open macOS/remote.bj/remote.bj.xcodeproj in Xcode
+- build & run it on the same machine you run the Char Server
+
 #### iOS client
 
 - open ios/remoteio/remoteio.xcodeproj in Xcode
-- build & run it on a simulator
+- build & run it on a simulator or an iOS device
+- select the server from the main menu
 - select "Lobby" from the main menu
 - select "Main" from the scene list
 - tap the "Devices" button to see the GUIDs from those web pages
