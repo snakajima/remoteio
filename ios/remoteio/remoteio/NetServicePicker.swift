@@ -14,7 +14,8 @@ class NetServicePicker: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.title = "Servers"
         browser.delegate = self
         browser.searchForServices(ofType: "_m2mchat._tcp", inDomain: "local")
     }
@@ -50,7 +51,7 @@ class NetServicePicker: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let service = services[indexPath.row]
         if let _ = service.hostName {
-            performSegue(withIdentifier: "room", sender: service)
+            performSegue(withIdentifier: "rooms", sender: service)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

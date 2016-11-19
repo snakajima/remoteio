@@ -120,7 +120,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="vU7-c8-Rl7"/>
                     <connections>
-                        <segue destination="WMy-Q9-x1Z" kind="show" identifier="room" id="Vyx-xr-GaW"/>
+                        <segue destination="WMy-Q9-x1Z" kind="show" identifier="rooms" id="Vyx-xr-GaW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a20-nF-uGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
