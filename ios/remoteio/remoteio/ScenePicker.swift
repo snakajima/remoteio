@@ -55,8 +55,17 @@ class ScenePicker: UITableViewController {
         scene["index"] = indexPath.row
         sceneName = name
         handler.switchTo(scene:scene)
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        var scene = scenes[indexPath.row]
+        guard let name = scene["name"] as? String else {
+          return
+        }
+        scene["index"] = indexPath.row
+        sceneName = name
+        handler.switchTo(scene:scene)
         performSegue(withIdentifier: "scene", sender: nil)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
