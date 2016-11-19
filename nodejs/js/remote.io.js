@@ -15,7 +15,9 @@
       onCommand:function(command) {},
       onScene:function(scene) {
         console.log("scene =", scene.name, scene.path);
-        window.location.href = scene.path;
+        if (scene.path != undefined) {
+            window.location.href = scene.path;
+        }
       },
       handlePan:function(state, pos, translate) {},
       handlePinch:function(state, pos, scale) {},

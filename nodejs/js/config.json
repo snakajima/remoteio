@@ -11,6 +11,18 @@
           "pathB":"/html/demo1B.html" },
         { "name":"Demo 2", "path":"/html/demo2.html",
           "commands":["Mr. Smith", "Mr. Johnson", "Mr. Williams"],
-          "pathB":"/html/demo2B.html" }
+          "pathB":"/html/demo2B.html" },
+        { "name":"next 1" },
+        { "name":"next 2" },
+        { "name":"next 3" },
+        { "name":"next 4" },
+        { "name":"next 5" },
+        { "name":"next 6" },
+        { "name":"next 7" },
+        { "name":"next 8" },
+        { "name":"next 9" },
+        { "name":"next 10" },
+        { "name":"next 11" },
+        { "name":"next 12" },
     ]
 }
