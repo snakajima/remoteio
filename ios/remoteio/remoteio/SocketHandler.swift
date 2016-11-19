@@ -9,6 +9,7 @@
 import UIKit
 
 class SocketHandler {
+    public static let didLoadConfig = NSNotification.Name("didLoadConfig")
     public static let didConnectionChange = NSNotification.Name("didConnectionChange")
     public static let didGuidsChange = NSNotification.Name("didGuidsChange")
     public private(set) var connected = false
@@ -39,6 +40,7 @@ class SocketHandler {
                 return
             }
             self.config = config
+            NotificationCenter.default.post(name: SocketHandler.didLoadConfig, object: nil)
         }
     }
     

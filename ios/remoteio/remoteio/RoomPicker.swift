@@ -10,8 +10,8 @@ import UIKit
 
 class RoomPicker: UITableViewController {
     var handler:SocketHandler!
-    var rooms = ["Lobby"]
-    var room = "N/A"
+    var rooms = [String]()
+    var room:String?
     let notificationManger = SNNotificationManager()
 
     override func viewDidLoad() {
@@ -19,6 +19,9 @@ class RoomPicker: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         notificationManger.addObserver(forName: SocketHandler.didConnectionChange, object: nil, queue: OperationQueue.main) { [unowned self] (_) in
+            self.tableView.reloadData()
+        }
+        notificationManger.addObserver(forName: SocketHandler.didLoadConfig, object: nil, queue: OperationQueue.main) { [unowned self] (_) in
             self.tableView.reloadData()
         }
     }
@@ -42,16 +45,13 @@ class RoomPicker: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         room = rooms[indexPath.row]
-        handler.switchTo(room:room)
+        handler.switchTo(room:room!)
         performSegue(withIdentifier: "room", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        if let vc = segue.destination as? ScenePicker {
+        if let vc = segue.destination as? ScenePicker, let room = room {
             vc.room = room
             vc.handler = handler
         }
