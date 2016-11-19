@@ -48,11 +48,11 @@ class ScenePicker: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let scene = scenes[indexPath.row]
-        guard let _ = scene["path"] as? String,
-              let name = scene["name"] as? String else {
+        var scene = scenes[indexPath.row]
+        guard let name = scene["name"] as? String else {
           return
         }
+        scene["index"] = indexPath.row
         sceneName = name
         handler.switchTo(scene:scene)
         performSegue(withIdentifier: "scene", sender: nil)
