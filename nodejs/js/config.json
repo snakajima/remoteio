@@ -1,7 +1,46 @@
 {
     "rooms":[
-        "Lobby", "Room 1", "Room 2", "Room 3"
+        "Lobby", "Room 1A", "Room 1B", "Room 2A", "Room 2B", "Room 3A", "Room 3B"
     ],
+    "scripts":[{
+        "title":"Major",
+        "scenes":[
+            { "name":"Main", "path":"/",
+              "commands":["Tom", "James", "Peter"],
+              "pathB":"/html/indexB.html" },
+            { "name":"Demo 1", "path":"/html/demo1.html",
+              "commands":["Blue", "Red", "Green"],
+              "pathB":"/html/demo1B.html" },
+            { "name":"Demo 2", "path":"/html/demo2.html",
+              "commands":["Mr. Smith", "Mr. Johnson", "Mr. Williams"],
+              "pathB":"/html/demo2B.html" },
+            { "name":"next 1" },
+            { "name":"next 2" },
+            { "name":"next 3" },
+            { "name":"next 4" },
+            { "name":"next 5" },
+            { "name":"next 6" },
+            { "name":"next 7" },
+            { "name":"next 8" },
+            { "name":"next 9" },
+            { "name":"next 10" },
+            { "name":"next 11" },
+            { "name":"next 12" },
+        ]
+    },{
+        "title":"Minor",
+        "scenes":[
+            { "name":"Main", "path":"/",
+              "commands":["Tom", "James", "Peter"],
+              "pathB":"/html/indexB.html" },
+            { "name":"Demo 1", "path":"/html/demo1.html",
+              "commands":["Blue", "Red", "Green"],
+              "pathB":"/html/demo1B.html" },
+            { "name":"Demo 2", "path":"/html/demo2.html",
+              "commands":["Mr. Smith", "Mr. Johnson", "Mr. Williams"],
+              "pathB":"/html/demo2B.html" },
+        ]
+    }],
     "scenes":[
         { "name":"Main", "path":"/",
           "commands":["Tom", "James", "Peter"],

@@ -16,9 +16,9 @@ class SocketHandler {
     private let socket:SocketIOClient
     public private(set) var guids = Set<String>()
     public private(set) var verbs = [String]()
-    private var config = ["rooms":["Lobby"], "scenes":["Main":"/"]] as [String : Any]
+    private var config = ["rooms":["Lobby"], "scripts":[["Major":["Main":"/"]]]] as [String : Any]
     public var rooms:[String] { return self.config["rooms"] as? [String] ?? [String]() }
-    public var scenes:[[String:Any]] { return self.config["scenes"] as? [[String:Any]] ?? [[String:Any]]() }
+    public var scripts:[[String:Any]] { return self.config["scripts"] as? [[String:Any]] ?? [[String:Any]]() }
     public var setups:[String] { return self.config["setups"] as? [String] ?? [String]() }
 
     init(baseURL:URL, configPath:String) {
@@ -36,7 +36,7 @@ class SocketHandler {
                 let json = try? JSONSerialization.jsonObject(with: data),
                 let config = json as? [String:Any],
                 let _ = config["rooms"] as? [String],
-                let _ = config["scenes"] as? [[String:Any]] else {
+                let _ = config["scripts"] as? [[String:Any]] else {
                 return
             }
             self.config = config

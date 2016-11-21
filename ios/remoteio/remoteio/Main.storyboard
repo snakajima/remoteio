@@ -52,6 +52,14 @@
                             <outlet property="delegate" destination="k6O-Bn-Qxn" id="m8S-5P-bng"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ZQP-Yz-dly"/>
+                        <barButtonItem systemItem="play" id="Jyd-b4-shJ">
+                            <connections>
+                                <action selector="next" destination="k6O-Bn-Qxn" id="0Yf-Rf-99d"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Scenes" id="v1p-89-y20">
                         <barButtonItem key="rightBarButtonItem" title="Devices" id="IDs-Cv-8Le">
                             <connections>
@@ -60,6 +68,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnNext" destination="Jyd-b4-shJ" id="3BH-OX-NP4"/>
                         <segue destination="KcH-af-wnS" kind="show" identifier="scene" id="RJ8-2i-BXR"/>
                     </connections>
                 </tableViewController>
@@ -90,6 +99,7 @@
                             <outlet property="delegate" destination="WMy-Q9-x1Z" id="iNJ-nr-d9b"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Fte-yB-7fF"/>
                     <connections>
                         <segue destination="k6O-Bn-Qxn" kind="show" identifier="room" id="yi2-n9-OaZ"/>

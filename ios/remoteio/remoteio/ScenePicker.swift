@@ -11,9 +11,11 @@ import UIKit
 class ScenePicker: UITableViewController {
     var scenes = [["name":"Main", "path":"/"]] as [[String:Any]]
     var room = "N/A"
+    var index = 0
     var sceneName = "Main"
     var handler:SocketHandler!
     let notificationManger = SNNotificationManager()
+    @IBOutlet var btnNext:UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,41 +32,45 @@ class ScenePicker: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func action() {
-        handler.scan();
-        //handler.add(objects: ["jelly1":["type":"ball", "state":["x":0, "y":10, "z":0]]])
-    }
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        let scripts = handler.scripts
+        return scripts.count
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let script = handler.scripts[section]
+        return script["title"] as? String
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        scenes = handler.scenes
-        return handler.connected ? scenes.count : 0
+        let script = handler.scripts[section]
+        scenes = script["scenes"] as? [[String:Any]] ?? [[String:Any]]()
+        return scenes.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "standard", for: indexPath)
         cell.textLabel?.text = scenes[indexPath.row]["name"] as? String
         return cell
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var scene = scenes[indexPath.row]
+    
+    private func moveTo(index:Int) {
+        var scene = scenes[index]
         guard let name = scene["name"] as? String else {
           return
         }
-        scene["index"] = indexPath.row
+        self.index = index
+        scene["index"] = index
         sceneName = name
         handler.switchTo(scene:scene)
+        btnNext.isEnabled = (index + 1 < scenes.count)
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        moveTo(index: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        var scene = scenes[indexPath.row]
-        guard let name = scene["name"] as? String else {
-          return
-        }
-        scene["index"] = indexPath.row
-        sceneName = name
-        handler.switchTo(scene:scene)
+        moveTo(index: indexPath.row)
         performSegue(withIdentifier: "scene", sender: nil)
     }
     
@@ -75,6 +81,13 @@ class ScenePicker: UITableViewController {
         } else if let vc = segue.destination as? ClientController {
             vc.handler = handler
             handler.scan()
+        }
+    }
+    
+    @IBAction func next() {
+        if index + 1 < scenes.count {
+            moveTo(index: index + 1)
+            tableView.selectRow(at: [0, index], animated: true, scrollPosition: UITableViewScrollPosition.none)
         }
     }
 }
