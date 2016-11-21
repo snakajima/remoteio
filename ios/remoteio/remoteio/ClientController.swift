@@ -91,10 +91,12 @@ class ClientController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.deselect()
         })
-        for verb in handler.rooms {
-            alert.addAction(UIAlertAction(title: verb, style: .default) { (_) in
-                self.swichTo(room: verb)
-            })
+        for room in handler.rooms {
+            if let name = room["name"] as? String {
+                alert.addAction(UIAlertAction(title: name, style: .default) { (_) in
+                    self.swichTo(room: name)
+                })
+            }
         }
         self.present(alert, animated: true, completion: nil)
         handler.sendAppMessage(data: ["cmd":"focus", "guid":focusGuid, "focus":true])

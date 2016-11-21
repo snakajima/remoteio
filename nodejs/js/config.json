@@ -1,7 +1,19 @@
 {
-    "rooms":[
-        "Lobby", "Room 1A", "Room 1B", "Room 2A", "Room 2B", "Room 3A", "Room 3B"
-    ],
+    "rooms":[{
+        "name":"Lobby",
+    },{
+        "name":"Room 1A",
+    },{
+        "name":"Room 1B",
+    },{
+        "name":"Room 2A",
+    },{
+        "name":"Room 2B",
+    },{
+        "name":"Room 3A",
+    },{
+        "name":"Room 3B"
+    }],
     "scripts":[{
         "title":"Major",
         "scenes":[

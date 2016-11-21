@@ -10,8 +10,8 @@ import UIKit
 
 class RoomPicker: UITableViewController {
     var handler:SocketHandler!
-    var rooms = [String]()
-    var room:String?
+    var rooms = [[String:Any]]()
+    var room:[String:Any]?
     let notificationManger = SNNotificationManager()
 
     override func viewDidLoad() {
@@ -41,19 +41,22 @@ class RoomPicker: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "standard", for: indexPath)
-        cell.textLabel?.text = rooms[indexPath.row]
+        cell.textLabel?.text = rooms[indexPath.row]["name"] as? String
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         room = rooms[indexPath.row]
-        handler.switchTo(room:room!)
-        performSegue(withIdentifier: "room", sender: nil)
+        if let name = room?["name"] as? String {
+            handler.switchTo(room:name)
+            performSegue(withIdentifier: "room", sender: nil)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ScenePicker, let room = room {
-            vc.room = room
+        if let vc = segue.destination as? ScenePicker,
+           let name = room?["name"] as? String {
+            vc.room = name
             vc.handler = handler
         }
     }
