@@ -12,6 +12,7 @@ class SocketHandler {
     public static let didLoadConfig = NSNotification.Name("didLoadConfig")
     public static let didConnectionChange = NSNotification.Name("didConnectionChange")
     public static let didGuidsChange = NSNotification.Name("didGuidsChange")
+    public static let didSceneChange = NSNotification.Name("didSceneChange")
     public private(set) var connected = false
     private let socket:SocketIOClient
     public private(set) var guids = Set<String>()
@@ -71,7 +72,10 @@ class SocketHandler {
                 
                 NotificationCenter.default.post(name: SocketHandler.didGuidsChange, object: nil)
             case "scene":
-                break
+                guard let scene = data["scene"] as? [String:Any] else {
+                    return
+                }
+                NotificationCenter.default.post(name: SocketHandler.didSceneChange, object: scene)
             default:
                 break
             }
